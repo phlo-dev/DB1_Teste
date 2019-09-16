@@ -1,2 +1,2 @@
-include ':app', ':dependencies', ':presentation', ':domain', ':data'
+include ':app', ':dependencies', ':presentation', ':domain', ':data', ':data_remote', ':data_local'
 rootProject.name = 'DB1 Teste'

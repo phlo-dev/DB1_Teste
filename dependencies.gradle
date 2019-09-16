@@ -45,6 +45,14 @@ ext {
 
     ]
 
+    dataLocalDependencies = dataDependencies + [
+
+    ]
+
+    dataRemoteDependencies = dataDependencies + [
+
+    ]
+
     testDependencies = [
 
     ]
