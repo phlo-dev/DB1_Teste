@@ -1,4 +1,4 @@
-ext{
+ext {
     defaultDependencies = [
             [configuration: "implementation", dependency: fileTree(dir: 'libs', include: ['*.jar'])],
             [configuration: "implementation", dependency: "$kotlin"],
@@ -31,7 +31,9 @@ ext{
     ]
 
     presentationDependencies = defaultDependencies + [
-
+            [configuration: "implementation", dependency: "$koinViewModel"],
+            [configuration: "implementation", dependency: "$viewModel"],
+            [configuration: "implementation", dependency: "$lifecycleXt"]
     ]
 
     testDependencies = [
