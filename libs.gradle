@@ -12,6 +12,9 @@ ext{
     lifecycleXt          = "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
     material             = "com.google.android.material:material:$materialVersion"
     gsonConvertFacotory  = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    retrofit             = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    retrofitCoroutine    = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:" +
+                            "$retrofitCoroutineVersion"
     gson                 = "com.google.code.gson:gson:$gsonVersion"
     httpInterceptor      = "com.squareup.okhttp3:logging-interceptor:$httpIntercptorVersion"
     anko                 = "org.jetbrains.anko:anko-commons:$ankoVersion"

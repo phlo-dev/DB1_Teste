@@ -1,6 +1,5 @@
 ext{
-        androidDevApplicationId = "com.pedro.db1.teste"
-        androidProdApplicationId = "com.pedro.db1.teste"
+        androidApplicationId = "com.pedro.db1.teste"
 
         androidBuildToolsVersion   = "29.0.2"
         androidCompileSdkVersion   = 29
