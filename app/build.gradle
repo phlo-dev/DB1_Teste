@@ -26,4 +26,6 @@ android {
 dependencies {
     uiDependencies.each { add(it.configuration, it.dependency, it.options) }
     testDependencies.each { add(it.configuration, it.dependency, it.options) }
+
+    implementation project(':dependencies')
 }

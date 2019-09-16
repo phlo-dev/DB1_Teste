@@ -30,6 +30,9 @@ ext{
             [configuration: "implementation", dependency: "$gsonConvertFacotory"]
     ]
 
+    presentationDependencies = defaultDependencies + [
+
+    ]
 
     testDependencies = [
 

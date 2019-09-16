@@ -1,2 +1,2 @@
-include ':app', ':di', ':presentation'
-rootProject.name='DB1 Teste'
+include ':app', ':dependencies', ':presentation'
+rootProject.name = 'DB1 Teste'
