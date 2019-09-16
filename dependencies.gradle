@@ -47,7 +47,7 @@ ext {
 
     dataLocalDependencies = dataDependencies + [
             [configuration: "implementation", dependency: "$room"],
-            [configuration: "kapt", dependency: "$roomCompiler"],
+            [configuration: "annotationProcessor", dependency: "$roomCompiler"],
             [configuration: "implementation", dependency: "$roomKtx"]
     ]
 

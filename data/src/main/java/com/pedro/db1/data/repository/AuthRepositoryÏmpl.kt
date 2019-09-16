@@ -1,17 +1,18 @@
 package com.pedro.db1.data.repository
 
+import com.pedro.db1.data.local.SessionLocalRepository
 import com.pedro.db1.data.remote.AuthRemoteRepository
 import com.pedro.db1.domain.model.AuthenticationParam
 import com.pedro.db1.domain.repository.authentication.AuthRepository
 import com.pedro.db1.domain.utils.Response
 
 class AuthRepositoryImpl(
-    private val remoteRepository: AuthRemoteRepository
-//    private val localRepository: AuthRepos
+    private val remoteRepository: AuthRemoteRepository,
+    private val localRepository: SessionLocalRepository
 ): AuthRepository {
 
     override suspend fun sigIn(params: AuthenticationParam): Response<Unit> =
         remoteRepository.signIn(params).map {
-
+            localRepository.isLogged = true
         }
 }

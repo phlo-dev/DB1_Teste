@@ -1,4 +1,4 @@
-package com.pedro.db1.data_remote
+package com.pedro.db1.data_remote.repository
 
 import com.pedro.db1.data.remote.AuthRemoteRepository
 import com.pedro.db1.domain.model.AuthenticationParam
