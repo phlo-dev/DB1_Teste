@@ -1,0 +1,24 @@
+ext{
+    defaultDependencies = [
+            [configuration: "implementation", dependency: fileTree(dir: 'libs', include: ['*.jar'])],
+            [configuration: "implementation", dependency: "$kotlin"],
+            [configuration: "implementation", dependency: "$coroutine"],
+            [configuration: "implementation", dependency: "$androidKtxCore"]
+    ]
+
+    uiDependencies = defaultDependencies + [
+            [configuration: "implementation", dependency: "$appCompat"],
+            [configuration: "implementation", dependency: "$navigationUi"],
+            [configuration: "implementation", dependency: "$koinViewModel"],
+            [configuration: "implementation", dependency: "$navigationFragment"],
+            [configuration: "implementation", dependency: "$constraintLayout"],
+            [configuration: "implementation", dependency: "$material"],
+            [configuration: "implementation", dependency: "$anko"],
+            [configuration: "implementation", dependency: "$material"],
+            [configuration: "implementation", dependency: "$recyclerview"]
+    ]
+
+    testDependencies = [
+            
+    ]
+}
