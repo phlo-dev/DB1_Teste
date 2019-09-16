@@ -38,19 +38,24 @@ ext {
 
     domainDependencies = defaultDependencies + [
             [configuration: "implementation", dependency: "$koinViewModel"],
-            [configuration: "implementation", dependency: "$koinScope"],
+            [configuration: "implementation", dependency: "$koinScope"]
     ]
 
     dataDependencies = defaultDependencies + [
-
+            [configuration: "implementation", dependency: "$gson"]
     ]
 
     dataLocalDependencies = dataDependencies + [
-
+            [configuration: "implementation", dependency: "$room"],
+            [configuration: "kapt", dependency: "$roomCompiler"],
+            [configuration: "implementation", dependency: "$roomKtx"]
     ]
 
     dataRemoteDependencies = dataDependencies + [
-
+            [configuration: "implementation", dependency: "$retrofit"],
+            [configuration: "implementation", dependency: "$retrofitCoroutine"],
+            [configuration: "implementation", dependency: "$httpInterceptor"],
+            [configuration: "implementation", dependency: "$gsonConvertFacotory"]
     ]
 
     testDependencies = [

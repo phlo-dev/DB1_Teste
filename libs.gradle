@@ -24,6 +24,10 @@ ext{
     constraintLayout     = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     lottie               = "com.airbnb.android:lottie:${lottieVersion}"
 
+    room                 = "androidx.room:room-runtime:$roomVersion"
+    roomKtx              = "androidx.room:room-ktx:$roomVersion"
+    roomCompiler         = "androidx.room:room-compiler:$roomVersion"
+
     //Tests
     junit = "junit:junit:$junitVersion"
     androidTestRunner = "androidx.test:runner:$androidTestRunnerVersion"
