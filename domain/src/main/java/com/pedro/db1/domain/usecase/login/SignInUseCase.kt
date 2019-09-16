@@ -1,10 +1,10 @@
 package com.pedro.db1.domain.usecase.login
 
 import com.pedro.db1.domain.model.AuthenticationParam
-import com.pedro.db1.domain.repository.AuthRepository
+import com.pedro.db1.domain.repository.authentication.AuthRepository
 import com.pedro.db1.domain.utils.UseCase
 
-class AuthenticationUseCase(
+class SignInUseCase(
     private val authRepository: AuthRepository
 ) : UseCase<AuthenticationParam, Unit>() {
 

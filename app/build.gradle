@@ -28,4 +28,5 @@ dependencies {
     testDependencies.each { add(it.configuration, it.dependency, it.options) }
 
     implementation project(':dependencies')
+    implementation project(':presentation')
 }

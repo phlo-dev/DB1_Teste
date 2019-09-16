@@ -1,6 +1,6 @@
 package com.pedro.db1.dependencies
 
-import com.pedro.db1.presentation.auth.AuthViewModel
+import com.pedro.db1.presentation.authentication.AuthViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 

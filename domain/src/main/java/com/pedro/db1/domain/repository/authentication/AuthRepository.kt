@@ -1,4 +1,4 @@
-package com.pedro.db1.domain.repository
+package com.pedro.db1.domain.repository.authentication
 
 import com.pedro.db1.domain.model.AuthenticationParam
 import com.pedro.db1.domain.utils.Result
