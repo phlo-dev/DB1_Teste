@@ -22,4 +22,5 @@ dependencies {
     diDependencies.each { add(it.configuration, it.dependency, it.options) }
 
     implementation project(':presentation')
+    implementation project(':domain')
 }

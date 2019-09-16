@@ -36,6 +36,11 @@ ext {
             [configuration: "implementation", dependency: "$lifecycleXt"]
     ]
 
+    domainDependencies = defaultDependencies + [
+            [configuration: "implementation", dependency: "$koinViewModel"],
+            [configuration: "implementation", dependency: "$koinScope"],
+    ]
+
     testDependencies = [
 
     ]

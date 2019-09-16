@@ -20,4 +20,6 @@ android {
 
 dependencies {
     presentationDependencies.each { add(it.configuration, it.dependency, it.options) }
+
+    implementation project(':domain')
 }
