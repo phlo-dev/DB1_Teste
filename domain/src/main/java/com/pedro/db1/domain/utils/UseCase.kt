@@ -11,9 +11,9 @@ abstract class UseCase<P, R> : KoinComponent {
     private val scope: CoroutineScope by inject()
     private val threadContextProvider: ThreadContextProvider by inject()
 
-    abstract suspend fun call(params: P): Result<R>
+    protected abstract suspend fun call(params: P): Result<R>
 
-    suspend fun execute(
+    fun execute(
         params: P,
         onSuccess: (R) -> Unit,
         onFailure: (Throwable) -> Unit

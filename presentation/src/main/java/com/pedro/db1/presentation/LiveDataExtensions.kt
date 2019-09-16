@@ -4,6 +4,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.pedro.db1.presentation.utils.FieldState
 import com.pedro.db1.presentation.utils.ViewState
 import com.pedro.db1.presentation.utils.ViewState.Status.*
 
@@ -44,3 +45,5 @@ fun <T> MutableLiveData<ViewState<T>>.postFailure(throwable: Throwable) =
     postValue(ViewState(status = ERROR, throwable = throwable))
 
 fun <T> MutableLiveData<ViewState<T>>.postLoading() = postValue(ViewState(status = LOADING))
+
+fun createFieldState() = MutableLiveData<FieldState>().also { it.value = FieldState.NEUTRAL }

@@ -41,6 +41,10 @@ ext {
             [configuration: "implementation", dependency: "$koinScope"],
     ]
 
+    dataDependencies = defaultDependencies + [
+
+    ]
+
     testDependencies = [
 
     ]
