@@ -1,3 +1,5 @@
+@file:Suppress("MemberVisibilityCanBePrivate")
+
 package com.pedro.db1.presentation.authentication
 
 import androidx.core.util.PatternsCompat
@@ -21,7 +23,7 @@ class AuthViewModel(private val authUseCase: SignInUseCase) : ViewModel(), Lifec
         }
     }
 
-    private fun MutableLiveData<FieldState>.validateEmail(email: String): Boolean {
+    fun MutableLiveData<FieldState>.validateEmail(email: String): Boolean {
         val isEmail = PatternsCompat.EMAIL_ADDRESS.toRegex().matches(email)
         when {
             email.isBlank() -> postValue(EMPTY)
@@ -33,7 +35,7 @@ class AuthViewModel(private val authUseCase: SignInUseCase) : ViewModel(), Lifec
         return false
     }
 
-    private fun MutableLiveData<FieldState>.validatePassword(password: String): Boolean {
+    fun MutableLiveData<FieldState>.validatePassword(password: String): Boolean {
         when {
             password.isBlank() -> postValue(EMPTY)
             password.length >= 6 -> { postValue(VALID); return true }
