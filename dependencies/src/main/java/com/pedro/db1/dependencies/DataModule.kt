@@ -11,5 +11,10 @@ val dataModule = module {
         AuthRepositoryImpl(remoteRepository = get(), localRepository = get()) as AuthRepository
     }
 
-    factory { CotationRepositoryImpl(remoteRepository = get()) as CotationRepository }
+    factory {
+        CotationRepositoryImpl(
+            remoteRepository = get(),
+            localRepository = get()
+        ) as CotationRepository
+    }
 }
