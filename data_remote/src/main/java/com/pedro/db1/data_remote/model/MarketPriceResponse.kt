@@ -1,6 +1,4 @@
-package com.pedro.db1.data_remote
-
-import com.pedro.db1.data_remote.model.ValueResponse
+package com.pedro.db1.data_remote.model
 
 data class MarketPriceResponse(
     val description: String,
