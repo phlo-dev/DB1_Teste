@@ -1,4 +1,4 @@
-package com.pedro.db1.data_local
+package com.pedro.db1.data_local.repository
 
 import com.pedro.db1.data.local.SessionLocalRepository
 import com.pedro.db1.data_local.utils.PreferencesUtils
