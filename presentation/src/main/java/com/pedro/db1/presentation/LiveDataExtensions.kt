@@ -46,4 +46,6 @@ fun <T> MutableLiveData<ViewState<T>>.postFailure(throwable: Throwable) =
 
 fun <T> MutableLiveData<ViewState<T>>.postLoading() = postValue(ViewState(status = LOADING))
 
+fun <T> MutableLiveData<ViewState<T>>.postNeutral() = postValue(ViewState(status = NEUTRAL))
+
 fun createFieldState() = MutableLiveData<FieldState>().also { it.value = FieldState.NEUTRAL }

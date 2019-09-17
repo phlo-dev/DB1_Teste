@@ -3,9 +3,7 @@
 package com.pedro.db1.presentation.authentication
 
 import androidx.core.util.PatternsCompat
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.pedro.db1.domain.model.AuthenticationParam
 import com.pedro.db1.domain.usecase.login.SignInUseCase
 import com.pedro.db1.presentation.*
@@ -38,7 +36,9 @@ class AuthViewModel(private val authUseCase: SignInUseCase) : ViewModel(), Lifec
     fun MutableLiveData<FieldState>.validatePassword(password: String): Boolean {
         when {
             password.isBlank() -> postValue(EMPTY)
-            password.length >= 6 -> { postValue(VALID); return true }
+            password.length >= 6 -> {
+                postValue(VALID); return true
+            }
             else -> postValue(INVALID)
         }
         return false
@@ -52,9 +52,18 @@ class AuthViewModel(private val authUseCase: SignInUseCase) : ViewModel(), Lifec
         )
     }
 
-    fun neutralEmail() = emailState.postValue(NEUTRAL)
-
-    fun neutralPassword() = passwordState.postValue(NEUTRAL)
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    private fun stopWorkOnStop() {
+        emailState.postValue(NEUTRAL)
+        passwordState.postValue(NEUTRAL)
+        authViewState.postNeutral()
+        authUseCase.cancel()
+    }
 
     fun getAuthViewState() = authViewState.asLiveData()
+
+    override fun onCleared() {
+        authUseCase.cancel()
+        super.onCleared()
+    }
 }
