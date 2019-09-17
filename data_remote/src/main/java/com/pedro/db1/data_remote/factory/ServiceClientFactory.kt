@@ -9,8 +9,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
-import javax.net.ssl.SSLSocketFactory
-import javax.net.ssl.X509TrustManager
 
 object ServiceClientFactory {
 
@@ -34,23 +32,16 @@ object ServiceClientFactory {
             else -> this
         }
 
-    fun createOkHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor,
-        socketFactory: SSLSocketFactory? = null,
-        trustManager: X509TrustManager? = null
-    ): OkHttpClient {
+    fun createOkHttpClient(): OkHttpClient {
         val clientBuilder = OkHttpClient.Builder()
 
         with(clientBuilder) {
-            if (socketFactory != null && trustManager != null) {
-                sslSocketFactory(socketFactory, trustManager)
-            } else {
-                addInterceptor(httpLoggingInterceptor)
-            }
             connectTimeout(30, TimeUnit.SECONDS)
             readTimeout(30, TimeUnit.SECONDS)
             writeTimeout(30, TimeUnit.SECONDS)
         }
+
+        clientBuilder.addInterceptor(createHttpLoggingInterceptor())
 
         return clientBuilder.build()
     }

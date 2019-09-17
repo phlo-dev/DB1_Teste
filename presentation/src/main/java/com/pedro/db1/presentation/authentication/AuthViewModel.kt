@@ -9,11 +9,14 @@ import com.pedro.db1.domain.usecase.login.SignInUseCase
 import com.pedro.db1.presentation.*
 import com.pedro.db1.presentation.utils.FieldState
 import com.pedro.db1.presentation.utils.FieldState.*
+import com.pedro.db1.presentation.utils.useCase
+import org.koin.standalone.KoinComponent
 
-class AuthViewModel(private val authUseCase: SignInUseCase) : ViewModel(), LifecycleObserver {
+class AuthViewModel : ViewModel(), LifecycleObserver, KoinComponent {
     private val authViewState = createViewState<Unit>()
     private val emailState = createFieldState()
     private val passwordState = createFieldState()
+    private val authUseCase: SignInUseCase by useCase()
 
     fun validateFields(email: String, password: String) {
         if (emailState.validateEmail(email) && emailState.validatePassword(password)) {

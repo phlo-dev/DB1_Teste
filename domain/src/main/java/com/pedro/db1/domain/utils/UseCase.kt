@@ -7,8 +7,7 @@ import kotlinx.coroutines.withContext
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
-abstract class UseCase<P, R> : KoinComponent {
-    private val scope: CoroutineScope by inject()
+abstract class UseCase<P, R>(private val scope: CoroutineScope) : KoinComponent {
     private val threadContextProvider: ThreadContextProvider by inject()
 
     protected abstract suspend fun call(params: P): Response<R>

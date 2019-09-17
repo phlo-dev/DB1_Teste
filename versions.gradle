@@ -27,6 +27,7 @@ ext{
         lottieVersion              = "2.8.0"
         roomVersion                = "2.1.0"
         pieChartVersion            = "v3.1.0"
+        multiDexVersion            = "2.0.1"
 
         //Tests
         junitVersion = "4.12"

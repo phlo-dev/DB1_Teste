@@ -11,9 +11,7 @@ val remoteWebServicesModule = module {
 
     single { createClient<CotationService>(BASE_URL, get(), get()) }
 
-    single { ServiceClientFactory.createOkHttpClient(get(), get()) }
-
-    single { ServiceClientFactory.createHttpLoggingInterceptor() }
+    single { ServiceClientFactory.createOkHttpClient() }
 
     factory { CoroutineCallAdapterFactory() }
 

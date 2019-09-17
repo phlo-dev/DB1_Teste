@@ -31,7 +31,7 @@ class CotationFragment : BaseFragment() {
         lifecycle.addObserver(viewModel)
         viewModel.getCotationViewState().handleWithFlow {
             cotationLineChart.setupWithData(it.mapIndexed { index, cotationValue ->
-                Entry(index.toFloat(), cotationValue.amountInDollar.toFloat(), cotationValue.date)
+                Entry(index.toFloat(), cotationValue.amount, cotationValue.date)
             })
         }
     }
@@ -53,7 +53,7 @@ class CotationFragment : BaseFragment() {
             data.notifyDataChanged()
             notifyDataSetChanged()
         } else {
-            set1 = LineDataSet(values, "Sample Data")
+            set1 = LineDataSet(values, "Cotação do Bitcoin")
             set1.setDrawIcons(false)
             set1.enableDashedLine(10f, 5f, 0f)
             set1.enableDashedHighlightLine(10f, 5f, 0f)

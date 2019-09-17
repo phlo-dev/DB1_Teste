@@ -7,8 +7,8 @@ import org.koin.dsl.module.module
 
 val presentationModule = module {
     //Authentication View Model
-    viewModel { AuthViewModel(authUseCase = get()) }
+    viewModel { AuthViewModel() }
 
-    viewModel { CotationViewModel(cotationUseCase = get()) }
+    viewModel { CotationViewModel() }
 
 }

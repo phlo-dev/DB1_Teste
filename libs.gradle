@@ -30,6 +30,7 @@ ext{
 
     pieChart             = "com.github.PhilJay:MPAndroidChart:$pieChartVersion"
 
+    multiDex             = "androidx.multidex:multidex:$multiDexVersion"
     //Tests
     junit = "junit:junit:$junitVersion"
     androidTestRunner = "androidx.test:runner:$androidTestRunnerVersion"
