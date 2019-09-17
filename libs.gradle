@@ -28,6 +28,8 @@ ext{
     roomKtx              = "androidx.room:room-ktx:$roomVersion"
     roomCompiler         = "androidx.room:room-compiler:$roomVersion"
 
+    pieChart             = "com.github.PhilJay:MPAndroidChart:$pieChartVersion"
+
     //Tests
     junit = "junit:junit:$junitVersion"
     androidTestRunner = "androidx.test:runner:$androidTestRunnerVersion"

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DB1 Teste</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="five_weeks_label">5 semanas</string>
 </resources>

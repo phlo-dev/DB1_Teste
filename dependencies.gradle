@@ -15,7 +15,8 @@ ext {
             [configuration: "implementation", dependency: "$material"],
             [configuration: "implementation", dependency: "$anko"],
             [configuration: "implementation", dependency: "$material"],
-            [configuration: "implementation", dependency: "$recyclerview"]
+            [configuration: "implementation", dependency: "$recyclerview"],
+            [configuration: "implementation", dependency: "$pieChart"]
     ]
 
 
