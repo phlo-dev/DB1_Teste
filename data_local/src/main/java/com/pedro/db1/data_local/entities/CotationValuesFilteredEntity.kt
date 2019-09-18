@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "cotation_filter")
-data class CotationValuesFilteredEntity (
-    @PrimaryKey var timeSpan: String,
+data class CotationValuesFilteredEntity(
+    @ColumnInfo var timeSpan: String,
     @ColumnInfo var amount: Double,
-    @ColumnInfo var date: Long
+    @PrimaryKey var date: Long
 )
