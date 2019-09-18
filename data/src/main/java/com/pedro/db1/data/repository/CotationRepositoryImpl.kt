@@ -19,7 +19,11 @@ class CotationRepositoryImpl(
                     else -> Response.Success(list)
                 }
             },
-            onSuccess = { Response.Success(it.toDomain()) }
+            onSuccess = {
+                val list = it.toDomain()
+                localRepository.saveCotationsValues(list, params)
+                Response.Success(list)
+            }
         )
 
 }
