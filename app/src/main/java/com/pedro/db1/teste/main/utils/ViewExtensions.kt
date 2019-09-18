@@ -3,7 +3,8 @@ package com.pedro.db1.teste.main.utils
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.animation.AccelerateInterpolator
+import android.view.ViewPropertyAnimator
+import android.view.animation.AccelerateDecelerateInterpolator
 
 fun View.show() {
     visibility = VISIBLE
@@ -13,27 +14,20 @@ fun View.hide(visibility: Int = GONE) {
     this.visibility = visibility
 }
 
-fun View.showWithFade(duration: Long = 200) = animate().run {
-    this.interpolator = AccelerateInterpolator()
-    this.duration = duration
-    this.alpha(1f)
-    this.scaleX(1f)
-    this.scaleY(1f)
-    withStartAction {
-        if (visibility != VISIBLE) this@showWithFade.alpha = 0f
-    }
-    start()
-}
+fun View.animateWithAlpha(alpha: Float, duration: Long = 500): ViewPropertyAnimator =
+    animate()
+        .alpha(alpha)
+        .setDuration(duration)
+        .setInterpolator(AccelerateDecelerateInterpolator())
 
-fun View.hideWithFade(duration: Long = 200, visibility: Int = GONE) = animate().run {
-    this.interpolator = AccelerateInterpolator()
-    this.duration = duration
-    this.alpha(0f)
-    this.scaleX(0f)
-    this.scaleY(0f)
-    withEndAction {
-        alpha = 1f
+
+fun View.hideWithFade(visibility: Int = GONE, duration: Long = 500) =
+    animateWithAlpha(0f, duration).scaleX(0f).scaleY(0f).withEndAction {
         hide(visibility)
-    }
-    start()
-}
+    }.start()
+
+fun View.showWithFade(duration: Long = 500) =
+    animateWithAlpha(1f, duration).scaleX(1f).scaleY(1f).withStartAction {
+        alpha = 0f
+        show()
+    }.start()

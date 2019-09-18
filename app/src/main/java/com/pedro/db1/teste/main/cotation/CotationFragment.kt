@@ -37,8 +37,8 @@ class CotationFragment : BaseFragment() {
 
     private fun List<CotationField>.mapSafelyToEntryData() =
         try {
-            map {
-                Entry(it.date.toFloat(), it.amount, it.date)
+            mapIndexed {index, it ->
+                Entry((index+1)*5.toFloat(), it.amount, it.date)
             }.subList(0, 10)
         } catch (ignored: Exception) {
             listOf<Entry>()

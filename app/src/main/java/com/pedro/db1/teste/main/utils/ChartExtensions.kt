@@ -14,7 +14,7 @@ import java.util.*
 
 fun LineChart.setupWithData(values: List<Entry>) {
     val dataSet: LineDataSet
-    dataSet = LineDataSet(values, "Cotação do Bitcoin").run {
+    dataSet = LineDataSet(values, "Cotação do Bitcoin (valor x semanas)").run {
         setDrawIcons(false)
         enableDashedLine(10f, 5f, 0f)
         enableDashedHighlightLine(10f, 5f, 0f)
