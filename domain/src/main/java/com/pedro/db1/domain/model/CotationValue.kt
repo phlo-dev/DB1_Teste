@@ -1,8 +1,6 @@
 package com.pedro.db1.domain.model
 
-import java.util.*
-
 data class CotationValue(
-    val date: Date,
+    val date: Long,
     val amountInDollar: Double
 )

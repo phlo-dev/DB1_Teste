@@ -5,7 +5,7 @@ import com.pedro.db1.presentation.model.CotationField
 
 fun List<CotationValue>.toUiModel() = map {
     CotationField(
-        date = it.date.toString(),//TODO make the convertion to date format
+        date = it.date,
         amount = it.amountInDollar.toFloat()
     )
 }

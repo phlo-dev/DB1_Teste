@@ -26,30 +26,23 @@ class CotationFragment : BaseFragment() {
     override fun creatingObservers() {
         lifecycle.addObserver(viewModel)
         viewModel.getCotationViewState().handleWithFlow(
-            onLoading = {
-                if(!cotationRefreshLayout.isRefreshing) cotationLoading.showWithFade()
-            },
-            onComplete = {
-                cotationRefreshLayout.isRefreshing = false
-                cotationLoading.hideWithFade()
-            },
+            onLoading = { cotationLoading.showWithFade() },
+            onComplete = { cotationLoading.hideWithFade() },
             onSuccess = {
+                cotationLineChart.showWithFade()
                 cotationLineChart.setupWithData(it.mapSafelyToEntryData())
             }
         )
     }
 
     private fun List<CotationField>.mapSafelyToEntryData() =
-        mapIndexed { index, cotationValue ->
-            Entry(index.toFloat(), cotationValue.amount, cotationValue.date)
+        try {
+            map {
+                Entry(it.date.toFloat(), it.amount, it.date)
+            }.subList(0, 10)
+        } catch (ignored: Exception) {
+            listOf<Entry>()
         }
-
-    override fun setupViews() {
-        cotationRefreshLayout.setOnRefreshListener {
-            viewModel.stopAll()
-            viewModel.fetchCotations()
-        }
-    }
 
     override fun onDestroy() {
         lifecycle.removeObserver(viewModel)

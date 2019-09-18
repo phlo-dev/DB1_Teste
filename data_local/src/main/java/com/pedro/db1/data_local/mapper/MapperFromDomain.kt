@@ -7,6 +7,6 @@ fun List<CotationValue>.fromDomain(timeSpan: String) = map {
     CotationValuesFilteredEntity(
         timeSpan = timeSpan,
         amount = it.amountInDollar,
-        date = it.date.time
+        date = it.date
     )
 }
