@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/turquoise_blue</color>
+    <color name="colorPrimaryDark">@color/deepSeaBlue</color>
+    <color name="colorAccent">@color/tealish</color>
+    <color name="deepSeaBlue">#005e83</color>
+    <color name="tealBlue">#0290aa</color>
+    <color name="aquaMarine">#4dd2e5</color>
+    <color name="denimBlue">#3b5998</color>
+    <color name="oceanBlue">#0077b5</color>
+    <color name="turquoise_blue">#00a1bf</color>
+    <color name="tealish">#2a9fbc</color>
 </resources>
