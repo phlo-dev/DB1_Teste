@@ -1,6 +1,5 @@
 package com.pedro.db1.teste.main.cotation
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,9 @@ import com.pedro.db1.presentation.cotation.CotationViewModel
 import com.pedro.db1.presentation.model.CotationField
 import com.pedro.db1.teste.R
 import com.pedro.db1.teste.main.base.BaseFragment
+import com.pedro.db1.teste.main.utils.hideWithFade
 import com.pedro.db1.teste.main.utils.setupWithData
+import com.pedro.db1.teste.main.utils.showWithFade
 import kotlinx.android.synthetic.main.fragment_cotation.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,15 +25,31 @@ class CotationFragment : BaseFragment() {
 
     override fun creatingObservers() {
         lifecycle.addObserver(viewModel)
-        viewModel.getCotationViewState().handleWithFlow {
-            cotationLineChart.setupWithData(it.mapSafelyToEntryData())
-        }
+        viewModel.getCotationViewState().handleWithFlow(
+            onLoading = {
+                if(!cotationRefreshLayout.isRefreshing) cotationLoading.showWithFade()
+            },
+            onComplete = {
+                cotationRefreshLayout.isRefreshing = false
+                cotationLoading.hideWithFade()
+            },
+            onSuccess = {
+                cotationLineChart.setupWithData(it.mapSafelyToEntryData())
+            }
+        )
     }
 
     private fun List<CotationField>.mapSafelyToEntryData() =
         mapIndexed { index, cotationValue ->
             Entry(index.toFloat(), cotationValue.amount, cotationValue.date)
         }
+
+    override fun setupViews() {
+        cotationRefreshLayout.setOnRefreshListener {
+            viewModel.stopAll()
+            viewModel.fetchCotations()
+        }
+    }
 
     override fun onDestroy() {
         lifecycle.removeObserver(viewModel)

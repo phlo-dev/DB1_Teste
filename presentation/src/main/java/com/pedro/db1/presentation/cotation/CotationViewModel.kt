@@ -30,6 +30,7 @@ class CotationViewModel : ViewModel(), KoinComponent, LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun stopAll() {
+        cotationUseCase.cancel()
         cotationViewState.postNeutral()
     }
 
