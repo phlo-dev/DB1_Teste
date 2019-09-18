@@ -6,6 +6,7 @@ import com.pedro.db1.domain.model.CotationValue
 fun List<CotationValue>.fromDomain(timeSpan: String) = map {
     CotationValuesFilteredEntity(
         timeSpan = timeSpan,
-        cotationValue = it
+        amount = it.amountInDollar,
+        date = it.date.time
     )
 }

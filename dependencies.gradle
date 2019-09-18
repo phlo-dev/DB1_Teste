@@ -48,8 +48,8 @@ ext {
     ]
 
     dataLocalDependencies = dataDependencies + [
+            [configuration: "implementation", dependency: "$koinScope"],
             [configuration: "implementation", dependency: "$room"],
-            [configuration: "annotationProcessor", dependency: "$roomCompiler"],
             [configuration: "implementation", dependency: "$roomKtx"]
     ]
 
